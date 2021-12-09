@@ -1,0 +1,1127 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ALIAS
+    AMPERSANT
+    APOSTROPHE
+    BEGIN
+    BREAK
+    CASE
+    CLASS
+    COLON
+    COMMENTS_C99
+    DEFINED
+    DEQUAL
+    DISTINT
+    DIVIDE
+    DO
+    DOT
+    DOT_DOT
+    ELSIF
+    ENSURE
+    FALSE
+    FOR
+    GETS
+    GREATER
+    GREATEREQUAL
+    HASHTAG
+    IDVAR
+    IN
+    LBLOCK
+    LBRACKET
+    LESS
+    MINUSEQUAL
+    MINUSMINUS
+    MODULE
+    NEXT
+    NIL
+    NOT
+    OPEN
+    PLUSEQUAL
+    PLUSPLUS
+    QUOTES
+    RBLOCK
+    RBRACKET
+    REDO
+    RESCUE
+    RETRY
+    RETURN
+    SELF
+    SEMI
+    SUPER
+    THEN
+    TIME
+    TIMES
+    TIMESTIMES
+    TREU
+    UNDEF
+    UNLESS
+    UNTIL
+    VARINST
+    VOID
+    WHEN
+    WHILE
+    YIELD
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> contsDecl
+Rule 2     contsDecl -> contsDecl declaration
+Rule 3     contsDecl -> declaration
+Rule 4     declaration -> str_declaration
+Rule 5     declaration -> var_declaration
+Rule 6     declaration -> iffor_declaration
+Rule 7     declaration -> comt_declaration
+Rule 8     declaration -> def_declaration
+Rule 9     declaration -> end_declaration
+Rule 10    str_declaration -> PUTS STRING
+Rule 11    str_declaration -> PUTS VARIABLE
+Rule 12    str_declaration -> PUTS VARIABLE PLUS VARIABLE
+Rule 13    var_declaration -> VARIABLE EQUAL STRING
+Rule 14    var_declaration -> VARIABLE EQUAL INT
+Rule 15    var_declaration -> VARIABLE EQUAL VARIABLE
+Rule 16    var_declaration -> VARIABLE EQUAL FLOAT
+Rule 17    var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT
+Rule 18    var_declaration -> VARIABLE EQUAL INT PLUS INT
+Rule 19    var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT
+Rule 20    var_declaration -> VARIABLE PLUS EQUAL INT
+Rule 21    var_declaration -> VARIABLE PLUS EQUAL VARIABLE
+Rule 22    var_declaration -> VARIABLE MINUS EQUAL INT
+Rule 23    iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration
+Rule 24    iffor_declaration -> ELSE str_declaration
+Rule 25    iffor_declaration -> ELSE
+Rule 26    iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration
+Rule 27    iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE
+Rule 28    iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration
+Rule 29    iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty
+Rule 30    comt_declaration -> COMMENTS
+Rule 31    def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration
+Rule 32    def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+Rule 33    def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN
+Rule 34    end_declaration -> END
+Rule 35    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ALIAS                : 
+AMPERSANT            : 
+APOSTROPHE           : 
+BEGIN                : 
+BREAK                : 
+CASE                 : 
+CLASS                : 
+COLON                : 
+COMMA                : 31 32 33
+COMMENTS             : 30
+COMMENTS_C99         : 
+DEF                  : 31 32
+DEFINED              : 
+DEQUAL               : 
+DISTINT              : 
+DIVIDE               : 
+DO                   : 
+DOT                  : 
+DOT_DOT              : 
+ELSE                 : 24 25
+ELSIF                : 
+END                  : 34
+ENSURE               : 
+EQUAL                : 13 14 15 16 17 18 19 20 21 22
+FALSE                : 
+FLOAT                : 16 17 17
+FOR                  : 
+GETS                 : 
+GREATER              : 
+GREATEREQUAL         : 
+HASHTAG              : 
+IDVAR                : 
+IF                   : 23 26 27 28 29
+IN                   : 
+INT                  : 14 18 18 19 20 22
+ISEQUAL              : 23
+LBLOCK               : 
+LBRACKET             : 
+LESS                 : 
+LESSEQUAL            : 26 27 28 29
+LPAREN               : 31 32 33
+MINUS                : 22
+MINUSEQUAL           : 
+MINUSMINUS           : 
+MODULE               : 
+NEXT                 : 
+NIL                  : 
+NOT                  : 
+OPEN                 : 
+PLUS                 : 12 17 18 19 20 21
+PLUSEQUAL            : 
+PLUSPLUS             : 
+PUTS                 : 10 11 12
+QUOTES               : 
+RBLOCK               : 
+RBRACKET             : 
+REDO                 : 
+RESCUE               : 
+RETRY                : 
+RETURN               : 
+RPAREN               : 31 32 33
+SELF                 : 
+SEMI                 : 
+STRING               : 10 13 23 26 28 29
+SUPER                : 
+THEN                 : 
+TIME                 : 
+TIMES                : 
+TIMESTIMES           : 
+TREU                 : 
+UNDEF                : 
+UNLESS               : 
+UNTIL                : 
+VARIABLE             : 11 12 12 13 14 15 15 16 17 18 19 19 20 21 21 22 23 26 27 27 28 29 31 31 31 32 32 32 33 33 33
+VARINST              : 
+VOID                 : 
+WHEN                 : 
+WHILE                : 
+YIELD                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+comt_declaration     : 7
+contsDecl            : 1 2
+declaration          : 2 3
+def_declaration      : 8
+empty                : 29
+end_declaration      : 9
+iffor_declaration    : 6 32
+program              : 0
+str_declaration      : 4 23 24 26 28 31 32
+var_declaration      : 5 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . contsDecl
+    (2) contsDecl -> . contsDecl declaration
+    (3) contsDecl -> . declaration
+    (4) declaration -> . str_declaration
+    (5) declaration -> . var_declaration
+    (6) declaration -> . iffor_declaration
+    (7) declaration -> . comt_declaration
+    (8) declaration -> . def_declaration
+    (9) declaration -> . end_declaration
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+    (13) var_declaration -> . VARIABLE EQUAL STRING
+    (14) var_declaration -> . VARIABLE EQUAL INT
+    (15) var_declaration -> . VARIABLE EQUAL VARIABLE
+    (16) var_declaration -> . VARIABLE EQUAL FLOAT
+    (17) var_declaration -> . VARIABLE EQUAL FLOAT PLUS FLOAT
+    (18) var_declaration -> . VARIABLE EQUAL INT PLUS INT
+    (19) var_declaration -> . VARIABLE EQUAL VARIABLE PLUS INT
+    (20) var_declaration -> . VARIABLE PLUS EQUAL INT
+    (21) var_declaration -> . VARIABLE PLUS EQUAL VARIABLE
+    (22) var_declaration -> . VARIABLE MINUS EQUAL INT
+    (23) iffor_declaration -> . IF VARIABLE ISEQUAL STRING str_declaration
+    (24) iffor_declaration -> . ELSE str_declaration
+    (25) iffor_declaration -> . ELSE
+    (26) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING str_declaration
+    (27) iffor_declaration -> . IF VARIABLE LESSEQUAL VARIABLE
+    (28) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING var_declaration str_declaration
+    (29) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING empty
+    (30) comt_declaration -> . COMMENTS
+    (31) def_declaration -> . DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> . DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+    (33) def_declaration -> . VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN
+    (34) end_declaration -> . END
+
+    PUTS            shift and go to state 10
+    VARIABLE        shift and go to state 11
+    IF              shift and go to state 12
+    ELSE            shift and go to state 13
+    COMMENTS        shift and go to state 14
+    DEF             shift and go to state 15
+    END             shift and go to state 16
+
+    program                        shift and go to state 1
+    contsDecl                      shift and go to state 2
+    declaration                    shift and go to state 3
+    str_declaration                shift and go to state 4
+    var_declaration                shift and go to state 5
+    iffor_declaration              shift and go to state 6
+    comt_declaration               shift and go to state 7
+    def_declaration                shift and go to state 8
+    end_declaration                shift and go to state 9
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> contsDecl .
+    (2) contsDecl -> contsDecl . declaration
+    (4) declaration -> . str_declaration
+    (5) declaration -> . var_declaration
+    (6) declaration -> . iffor_declaration
+    (7) declaration -> . comt_declaration
+    (8) declaration -> . def_declaration
+    (9) declaration -> . end_declaration
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+    (13) var_declaration -> . VARIABLE EQUAL STRING
+    (14) var_declaration -> . VARIABLE EQUAL INT
+    (15) var_declaration -> . VARIABLE EQUAL VARIABLE
+    (16) var_declaration -> . VARIABLE EQUAL FLOAT
+    (17) var_declaration -> . VARIABLE EQUAL FLOAT PLUS FLOAT
+    (18) var_declaration -> . VARIABLE EQUAL INT PLUS INT
+    (19) var_declaration -> . VARIABLE EQUAL VARIABLE PLUS INT
+    (20) var_declaration -> . VARIABLE PLUS EQUAL INT
+    (21) var_declaration -> . VARIABLE PLUS EQUAL VARIABLE
+    (22) var_declaration -> . VARIABLE MINUS EQUAL INT
+    (23) iffor_declaration -> . IF VARIABLE ISEQUAL STRING str_declaration
+    (24) iffor_declaration -> . ELSE str_declaration
+    (25) iffor_declaration -> . ELSE
+    (26) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING str_declaration
+    (27) iffor_declaration -> . IF VARIABLE LESSEQUAL VARIABLE
+    (28) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING var_declaration str_declaration
+    (29) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING empty
+    (30) comt_declaration -> . COMMENTS
+    (31) def_declaration -> . DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> . DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+    (33) def_declaration -> . VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN
+    (34) end_declaration -> . END
+
+    $end            reduce using rule 1 (program -> contsDecl .)
+    PUTS            shift and go to state 10
+    VARIABLE        shift and go to state 11
+    IF              shift and go to state 12
+    ELSE            shift and go to state 13
+    COMMENTS        shift and go to state 14
+    DEF             shift and go to state 15
+    END             shift and go to state 16
+
+    declaration                    shift and go to state 17
+    str_declaration                shift and go to state 4
+    var_declaration                shift and go to state 5
+    iffor_declaration              shift and go to state 6
+    comt_declaration               shift and go to state 7
+    def_declaration                shift and go to state 8
+    end_declaration                shift and go to state 9
+
+state 3
+
+    (3) contsDecl -> declaration .
+
+    PUTS            reduce using rule 3 (contsDecl -> declaration .)
+    VARIABLE        reduce using rule 3 (contsDecl -> declaration .)
+    IF              reduce using rule 3 (contsDecl -> declaration .)
+    ELSE            reduce using rule 3 (contsDecl -> declaration .)
+    COMMENTS        reduce using rule 3 (contsDecl -> declaration .)
+    DEF             reduce using rule 3 (contsDecl -> declaration .)
+    END             reduce using rule 3 (contsDecl -> declaration .)
+    $end            reduce using rule 3 (contsDecl -> declaration .)
+
+
+state 4
+
+    (4) declaration -> str_declaration .
+
+    PUTS            reduce using rule 4 (declaration -> str_declaration .)
+    VARIABLE        reduce using rule 4 (declaration -> str_declaration .)
+    IF              reduce using rule 4 (declaration -> str_declaration .)
+    ELSE            reduce using rule 4 (declaration -> str_declaration .)
+    COMMENTS        reduce using rule 4 (declaration -> str_declaration .)
+    DEF             reduce using rule 4 (declaration -> str_declaration .)
+    END             reduce using rule 4 (declaration -> str_declaration .)
+    $end            reduce using rule 4 (declaration -> str_declaration .)
+
+
+state 5
+
+    (5) declaration -> var_declaration .
+
+    PUTS            reduce using rule 5 (declaration -> var_declaration .)
+    VARIABLE        reduce using rule 5 (declaration -> var_declaration .)
+    IF              reduce using rule 5 (declaration -> var_declaration .)
+    ELSE            reduce using rule 5 (declaration -> var_declaration .)
+    COMMENTS        reduce using rule 5 (declaration -> var_declaration .)
+    DEF             reduce using rule 5 (declaration -> var_declaration .)
+    END             reduce using rule 5 (declaration -> var_declaration .)
+    $end            reduce using rule 5 (declaration -> var_declaration .)
+
+
+state 6
+
+    (6) declaration -> iffor_declaration .
+
+    PUTS            reduce using rule 6 (declaration -> iffor_declaration .)
+    VARIABLE        reduce using rule 6 (declaration -> iffor_declaration .)
+    IF              reduce using rule 6 (declaration -> iffor_declaration .)
+    ELSE            reduce using rule 6 (declaration -> iffor_declaration .)
+    COMMENTS        reduce using rule 6 (declaration -> iffor_declaration .)
+    DEF             reduce using rule 6 (declaration -> iffor_declaration .)
+    END             reduce using rule 6 (declaration -> iffor_declaration .)
+    $end            reduce using rule 6 (declaration -> iffor_declaration .)
+
+
+state 7
+
+    (7) declaration -> comt_declaration .
+
+    PUTS            reduce using rule 7 (declaration -> comt_declaration .)
+    VARIABLE        reduce using rule 7 (declaration -> comt_declaration .)
+    IF              reduce using rule 7 (declaration -> comt_declaration .)
+    ELSE            reduce using rule 7 (declaration -> comt_declaration .)
+    COMMENTS        reduce using rule 7 (declaration -> comt_declaration .)
+    DEF             reduce using rule 7 (declaration -> comt_declaration .)
+    END             reduce using rule 7 (declaration -> comt_declaration .)
+    $end            reduce using rule 7 (declaration -> comt_declaration .)
+
+
+state 8
+
+    (8) declaration -> def_declaration .
+
+    PUTS            reduce using rule 8 (declaration -> def_declaration .)
+    VARIABLE        reduce using rule 8 (declaration -> def_declaration .)
+    IF              reduce using rule 8 (declaration -> def_declaration .)
+    ELSE            reduce using rule 8 (declaration -> def_declaration .)
+    COMMENTS        reduce using rule 8 (declaration -> def_declaration .)
+    DEF             reduce using rule 8 (declaration -> def_declaration .)
+    END             reduce using rule 8 (declaration -> def_declaration .)
+    $end            reduce using rule 8 (declaration -> def_declaration .)
+
+
+state 9
+
+    (9) declaration -> end_declaration .
+
+    PUTS            reduce using rule 9 (declaration -> end_declaration .)
+    VARIABLE        reduce using rule 9 (declaration -> end_declaration .)
+    IF              reduce using rule 9 (declaration -> end_declaration .)
+    ELSE            reduce using rule 9 (declaration -> end_declaration .)
+    COMMENTS        reduce using rule 9 (declaration -> end_declaration .)
+    DEF             reduce using rule 9 (declaration -> end_declaration .)
+    END             reduce using rule 9 (declaration -> end_declaration .)
+    $end            reduce using rule 9 (declaration -> end_declaration .)
+
+
+state 10
+
+    (10) str_declaration -> PUTS . STRING
+    (11) str_declaration -> PUTS . VARIABLE
+    (12) str_declaration -> PUTS . VARIABLE PLUS VARIABLE
+
+    STRING          shift and go to state 18
+    VARIABLE        shift and go to state 19
+
+
+state 11
+
+    (13) var_declaration -> VARIABLE . EQUAL STRING
+    (14) var_declaration -> VARIABLE . EQUAL INT
+    (15) var_declaration -> VARIABLE . EQUAL VARIABLE
+    (16) var_declaration -> VARIABLE . EQUAL FLOAT
+    (17) var_declaration -> VARIABLE . EQUAL FLOAT PLUS FLOAT
+    (18) var_declaration -> VARIABLE . EQUAL INT PLUS INT
+    (19) var_declaration -> VARIABLE . EQUAL VARIABLE PLUS INT
+    (20) var_declaration -> VARIABLE . PLUS EQUAL INT
+    (21) var_declaration -> VARIABLE . PLUS EQUAL VARIABLE
+    (22) var_declaration -> VARIABLE . MINUS EQUAL INT
+    (33) def_declaration -> VARIABLE . LPAREN VARIABLE COMMA VARIABLE RPAREN
+
+    EQUAL           shift and go to state 20
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+
+
+state 12
+
+    (23) iffor_declaration -> IF . VARIABLE ISEQUAL STRING str_declaration
+    (26) iffor_declaration -> IF . VARIABLE LESSEQUAL STRING str_declaration
+    (27) iffor_declaration -> IF . VARIABLE LESSEQUAL VARIABLE
+    (28) iffor_declaration -> IF . VARIABLE LESSEQUAL STRING var_declaration str_declaration
+    (29) iffor_declaration -> IF . VARIABLE LESSEQUAL STRING empty
+
+    VARIABLE        shift and go to state 24
+
+
+state 13
+
+    (24) iffor_declaration -> ELSE . str_declaration
+    (25) iffor_declaration -> ELSE .
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+
+    PUTS            reduce using rule 25 (iffor_declaration -> ELSE .)
+    VARIABLE        reduce using rule 25 (iffor_declaration -> ELSE .)
+    IF              reduce using rule 25 (iffor_declaration -> ELSE .)
+    ELSE            reduce using rule 25 (iffor_declaration -> ELSE .)
+    COMMENTS        reduce using rule 25 (iffor_declaration -> ELSE .)
+    DEF             reduce using rule 25 (iffor_declaration -> ELSE .)
+    END             reduce using rule 25 (iffor_declaration -> ELSE .)
+    $end            reduce using rule 25 (iffor_declaration -> ELSE .)
+
+  ! PUTS            [ shift and go to state 10 ]
+
+    str_declaration                shift and go to state 25
+
+state 14
+
+    (30) comt_declaration -> COMMENTS .
+
+    PUTS            reduce using rule 30 (comt_declaration -> COMMENTS .)
+    VARIABLE        reduce using rule 30 (comt_declaration -> COMMENTS .)
+    IF              reduce using rule 30 (comt_declaration -> COMMENTS .)
+    ELSE            reduce using rule 30 (comt_declaration -> COMMENTS .)
+    COMMENTS        reduce using rule 30 (comt_declaration -> COMMENTS .)
+    DEF             reduce using rule 30 (comt_declaration -> COMMENTS .)
+    END             reduce using rule 30 (comt_declaration -> COMMENTS .)
+    $end            reduce using rule 30 (comt_declaration -> COMMENTS .)
+
+
+state 15
+
+    (31) def_declaration -> DEF . VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> DEF . VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+
+    VARIABLE        shift and go to state 26
+
+
+state 16
+
+    (34) end_declaration -> END .
+
+    PUTS            reduce using rule 34 (end_declaration -> END .)
+    VARIABLE        reduce using rule 34 (end_declaration -> END .)
+    IF              reduce using rule 34 (end_declaration -> END .)
+    ELSE            reduce using rule 34 (end_declaration -> END .)
+    COMMENTS        reduce using rule 34 (end_declaration -> END .)
+    DEF             reduce using rule 34 (end_declaration -> END .)
+    END             reduce using rule 34 (end_declaration -> END .)
+    $end            reduce using rule 34 (end_declaration -> END .)
+
+
+state 17
+
+    (2) contsDecl -> contsDecl declaration .
+
+    PUTS            reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    VARIABLE        reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    IF              reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    ELSE            reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    COMMENTS        reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    DEF             reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    END             reduce using rule 2 (contsDecl -> contsDecl declaration .)
+    $end            reduce using rule 2 (contsDecl -> contsDecl declaration .)
+
+
+state 18
+
+    (10) str_declaration -> PUTS STRING .
+
+    PUTS            reduce using rule 10 (str_declaration -> PUTS STRING .)
+    VARIABLE        reduce using rule 10 (str_declaration -> PUTS STRING .)
+    IF              reduce using rule 10 (str_declaration -> PUTS STRING .)
+    ELSE            reduce using rule 10 (str_declaration -> PUTS STRING .)
+    COMMENTS        reduce using rule 10 (str_declaration -> PUTS STRING .)
+    DEF             reduce using rule 10 (str_declaration -> PUTS STRING .)
+    END             reduce using rule 10 (str_declaration -> PUTS STRING .)
+    $end            reduce using rule 10 (str_declaration -> PUTS STRING .)
+
+
+state 19
+
+    (11) str_declaration -> PUTS VARIABLE .
+    (12) str_declaration -> PUTS VARIABLE . PLUS VARIABLE
+
+    PUTS            reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    VARIABLE        reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    IF              reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    ELSE            reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    COMMENTS        reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    DEF             reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    END             reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    $end            reduce using rule 11 (str_declaration -> PUTS VARIABLE .)
+    PLUS            shift and go to state 27
+
+
+state 20
+
+    (13) var_declaration -> VARIABLE EQUAL . STRING
+    (14) var_declaration -> VARIABLE EQUAL . INT
+    (15) var_declaration -> VARIABLE EQUAL . VARIABLE
+    (16) var_declaration -> VARIABLE EQUAL . FLOAT
+    (17) var_declaration -> VARIABLE EQUAL . FLOAT PLUS FLOAT
+    (18) var_declaration -> VARIABLE EQUAL . INT PLUS INT
+    (19) var_declaration -> VARIABLE EQUAL . VARIABLE PLUS INT
+
+    STRING          shift and go to state 29
+    INT             shift and go to state 30
+    VARIABLE        shift and go to state 28
+    FLOAT           shift and go to state 31
+
+
+state 21
+
+    (20) var_declaration -> VARIABLE PLUS . EQUAL INT
+    (21) var_declaration -> VARIABLE PLUS . EQUAL VARIABLE
+
+    EQUAL           shift and go to state 32
+
+
+state 22
+
+    (22) var_declaration -> VARIABLE MINUS . EQUAL INT
+
+    EQUAL           shift and go to state 33
+
+
+state 23
+
+    (33) def_declaration -> VARIABLE LPAREN . VARIABLE COMMA VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 34
+
+
+state 24
+
+    (23) iffor_declaration -> IF VARIABLE . ISEQUAL STRING str_declaration
+    (26) iffor_declaration -> IF VARIABLE . LESSEQUAL STRING str_declaration
+    (27) iffor_declaration -> IF VARIABLE . LESSEQUAL VARIABLE
+    (28) iffor_declaration -> IF VARIABLE . LESSEQUAL STRING var_declaration str_declaration
+    (29) iffor_declaration -> IF VARIABLE . LESSEQUAL STRING empty
+
+    ISEQUAL         shift and go to state 35
+    LESSEQUAL       shift and go to state 36
+
+
+state 25
+
+    (24) iffor_declaration -> ELSE str_declaration .
+
+    PUTS            reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    VARIABLE        reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    IF              reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    ELSE            reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    COMMENTS        reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    DEF             reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    END             reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+    $end            reduce using rule 24 (iffor_declaration -> ELSE str_declaration .)
+
+
+state 26
+
+    (31) def_declaration -> DEF VARIABLE . LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> DEF VARIABLE . LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+
+    LPAREN          shift and go to state 37
+
+
+state 27
+
+    (12) str_declaration -> PUTS VARIABLE PLUS . VARIABLE
+
+    VARIABLE        shift and go to state 38
+
+
+state 28
+
+    (15) var_declaration -> VARIABLE EQUAL VARIABLE .
+    (19) var_declaration -> VARIABLE EQUAL VARIABLE . PLUS INT
+
+    PUTS            reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    VARIABLE        reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    IF              reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    ELSE            reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    COMMENTS        reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    DEF             reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    END             reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    $end            reduce using rule 15 (var_declaration -> VARIABLE EQUAL VARIABLE .)
+    PLUS            shift and go to state 39
+
+
+state 29
+
+    (13) var_declaration -> VARIABLE EQUAL STRING .
+
+    PUTS            reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    VARIABLE        reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    IF              reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    ELSE            reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    COMMENTS        reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    DEF             reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    END             reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+    $end            reduce using rule 13 (var_declaration -> VARIABLE EQUAL STRING .)
+
+
+state 30
+
+    (14) var_declaration -> VARIABLE EQUAL INT .
+    (18) var_declaration -> VARIABLE EQUAL INT . PLUS INT
+
+    PUTS            reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    VARIABLE        reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    IF              reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    ELSE            reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    COMMENTS        reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    DEF             reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    END             reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    $end            reduce using rule 14 (var_declaration -> VARIABLE EQUAL INT .)
+    PLUS            shift and go to state 40
+
+
+state 31
+
+    (16) var_declaration -> VARIABLE EQUAL FLOAT .
+    (17) var_declaration -> VARIABLE EQUAL FLOAT . PLUS FLOAT
+
+    PUTS            reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    VARIABLE        reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    IF              reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    ELSE            reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    COMMENTS        reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    DEF             reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    END             reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    $end            reduce using rule 16 (var_declaration -> VARIABLE EQUAL FLOAT .)
+    PLUS            shift and go to state 41
+
+
+state 32
+
+    (20) var_declaration -> VARIABLE PLUS EQUAL . INT
+    (21) var_declaration -> VARIABLE PLUS EQUAL . VARIABLE
+
+    INT             shift and go to state 43
+    VARIABLE        shift and go to state 42
+
+
+state 33
+
+    (22) var_declaration -> VARIABLE MINUS EQUAL . INT
+
+    INT             shift and go to state 44
+
+
+state 34
+
+    (33) def_declaration -> VARIABLE LPAREN VARIABLE . COMMA VARIABLE RPAREN
+
+    COMMA           shift and go to state 45
+
+
+state 35
+
+    (23) iffor_declaration -> IF VARIABLE ISEQUAL . STRING str_declaration
+
+    STRING          shift and go to state 46
+
+
+state 36
+
+    (26) iffor_declaration -> IF VARIABLE LESSEQUAL . STRING str_declaration
+    (27) iffor_declaration -> IF VARIABLE LESSEQUAL . VARIABLE
+    (28) iffor_declaration -> IF VARIABLE LESSEQUAL . STRING var_declaration str_declaration
+    (29) iffor_declaration -> IF VARIABLE LESSEQUAL . STRING empty
+
+    STRING          shift and go to state 48
+    VARIABLE        shift and go to state 47
+
+
+state 37
+
+    (31) def_declaration -> DEF VARIABLE LPAREN . VARIABLE COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> DEF VARIABLE LPAREN . VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration
+
+    VARIABLE        shift and go to state 49
+
+
+state 38
+
+    (12) str_declaration -> PUTS VARIABLE PLUS VARIABLE .
+
+    PUTS            reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    VARIABLE        reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    IF              reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    ELSE            reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    COMMENTS        reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    DEF             reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    END             reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+    $end            reduce using rule 12 (str_declaration -> PUTS VARIABLE PLUS VARIABLE .)
+
+
+state 39
+
+    (19) var_declaration -> VARIABLE EQUAL VARIABLE PLUS . INT
+
+    INT             shift and go to state 50
+
+
+state 40
+
+    (18) var_declaration -> VARIABLE EQUAL INT PLUS . INT
+
+    INT             shift and go to state 51
+
+
+state 41
+
+    (17) var_declaration -> VARIABLE EQUAL FLOAT PLUS . FLOAT
+
+    FLOAT           shift and go to state 52
+
+
+state 42
+
+    (21) var_declaration -> VARIABLE PLUS EQUAL VARIABLE .
+
+    PUTS            reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    VARIABLE        reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    IF              reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    ELSE            reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    COMMENTS        reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    DEF             reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    END             reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+    $end            reduce using rule 21 (var_declaration -> VARIABLE PLUS EQUAL VARIABLE .)
+
+
+state 43
+
+    (20) var_declaration -> VARIABLE PLUS EQUAL INT .
+
+    PUTS            reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    VARIABLE        reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    IF              reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    ELSE            reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    COMMENTS        reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    DEF             reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    END             reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+    $end            reduce using rule 20 (var_declaration -> VARIABLE PLUS EQUAL INT .)
+
+
+state 44
+
+    (22) var_declaration -> VARIABLE MINUS EQUAL INT .
+
+    PUTS            reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    VARIABLE        reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    IF              reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    ELSE            reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    COMMENTS        reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    DEF             reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    END             reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+    $end            reduce using rule 22 (var_declaration -> VARIABLE MINUS EQUAL INT .)
+
+
+state 45
+
+    (33) def_declaration -> VARIABLE LPAREN VARIABLE COMMA . VARIABLE RPAREN
+
+    VARIABLE        shift and go to state 53
+
+
+state 46
+
+    (23) iffor_declaration -> IF VARIABLE ISEQUAL STRING . str_declaration
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+
+    PUTS            shift and go to state 10
+
+    str_declaration                shift and go to state 54
+
+state 47
+
+    (27) iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .
+
+    PUTS            reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    VARIABLE        reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    IF              reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    ELSE            reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    COMMENTS        reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    DEF             reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    END             reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+    $end            reduce using rule 27 (iffor_declaration -> IF VARIABLE LESSEQUAL VARIABLE .)
+
+
+state 48
+
+    (26) iffor_declaration -> IF VARIABLE LESSEQUAL STRING . str_declaration
+    (28) iffor_declaration -> IF VARIABLE LESSEQUAL STRING . var_declaration str_declaration
+    (29) iffor_declaration -> IF VARIABLE LESSEQUAL STRING . empty
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+    (13) var_declaration -> . VARIABLE EQUAL STRING
+    (14) var_declaration -> . VARIABLE EQUAL INT
+    (15) var_declaration -> . VARIABLE EQUAL VARIABLE
+    (16) var_declaration -> . VARIABLE EQUAL FLOAT
+    (17) var_declaration -> . VARIABLE EQUAL FLOAT PLUS FLOAT
+    (18) var_declaration -> . VARIABLE EQUAL INT PLUS INT
+    (19) var_declaration -> . VARIABLE EQUAL VARIABLE PLUS INT
+    (20) var_declaration -> . VARIABLE PLUS EQUAL INT
+    (21) var_declaration -> . VARIABLE PLUS EQUAL VARIABLE
+    (22) var_declaration -> . VARIABLE MINUS EQUAL INT
+    (35) empty -> .
+
+  ! shift/reduce conflict for PUTS resolved as shift
+  ! shift/reduce conflict for VARIABLE resolved as shift
+    PUTS            shift and go to state 10
+    VARIABLE        shift and go to state 55
+    IF              reduce using rule 35 (empty -> .)
+    ELSE            reduce using rule 35 (empty -> .)
+    COMMENTS        reduce using rule 35 (empty -> .)
+    DEF             reduce using rule 35 (empty -> .)
+    END             reduce using rule 35 (empty -> .)
+    $end            reduce using rule 35 (empty -> .)
+
+  ! PUTS            [ reduce using rule 35 (empty -> .) ]
+  ! VARIABLE        [ reduce using rule 35 (empty -> .) ]
+
+    str_declaration                shift and go to state 56
+    var_declaration                shift and go to state 57
+    empty                          shift and go to state 58
+
+state 49
+
+    (31) def_declaration -> DEF VARIABLE LPAREN VARIABLE . COMMA VARIABLE RPAREN str_declaration
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE . COMMA VARIABLE RPAREN str_declaration iffor_declaration
+
+    COMMA           shift and go to state 59
+
+
+state 50
+
+    (19) var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .
+
+    PUTS            reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    VARIABLE        reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    IF              reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    ELSE            reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    COMMENTS        reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    DEF             reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    END             reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+    $end            reduce using rule 19 (var_declaration -> VARIABLE EQUAL VARIABLE PLUS INT .)
+
+
+state 51
+
+    (18) var_declaration -> VARIABLE EQUAL INT PLUS INT .
+
+    PUTS            reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    VARIABLE        reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    IF              reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    ELSE            reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    COMMENTS        reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    DEF             reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    END             reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+    $end            reduce using rule 18 (var_declaration -> VARIABLE EQUAL INT PLUS INT .)
+
+
+state 52
+
+    (17) var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .
+
+    PUTS            reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    VARIABLE        reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    IF              reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    ELSE            reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    COMMENTS        reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    DEF             reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    END             reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+    $end            reduce using rule 17 (var_declaration -> VARIABLE EQUAL FLOAT PLUS FLOAT .)
+
+
+state 53
+
+    (33) def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE . RPAREN
+
+    RPAREN          shift and go to state 60
+
+
+state 54
+
+    (23) iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .
+
+    PUTS            reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    VARIABLE        reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    IF              reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    ELSE            reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    COMMENTS        reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    DEF             reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    END             reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+    $end            reduce using rule 23 (iffor_declaration -> IF VARIABLE ISEQUAL STRING str_declaration .)
+
+
+state 55
+
+    (13) var_declaration -> VARIABLE . EQUAL STRING
+    (14) var_declaration -> VARIABLE . EQUAL INT
+    (15) var_declaration -> VARIABLE . EQUAL VARIABLE
+    (16) var_declaration -> VARIABLE . EQUAL FLOAT
+    (17) var_declaration -> VARIABLE . EQUAL FLOAT PLUS FLOAT
+    (18) var_declaration -> VARIABLE . EQUAL INT PLUS INT
+    (19) var_declaration -> VARIABLE . EQUAL VARIABLE PLUS INT
+    (20) var_declaration -> VARIABLE . PLUS EQUAL INT
+    (21) var_declaration -> VARIABLE . PLUS EQUAL VARIABLE
+    (22) var_declaration -> VARIABLE . MINUS EQUAL INT
+
+    EQUAL           shift and go to state 20
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+
+
+state 56
+
+    (26) iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .
+
+    PUTS            reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    VARIABLE        reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    IF              reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    ELSE            reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    COMMENTS        reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    DEF             reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    END             reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+    $end            reduce using rule 26 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING str_declaration .)
+
+
+state 57
+
+    (28) iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration . str_declaration
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+
+    PUTS            shift and go to state 10
+
+    str_declaration                shift and go to state 61
+
+state 58
+
+    (29) iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .
+
+    PUTS            reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    VARIABLE        reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    IF              reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    ELSE            reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    COMMENTS        reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    DEF             reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    END             reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+    $end            reduce using rule 29 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING empty .)
+
+
+state 59
+
+    (31) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA . VARIABLE RPAREN str_declaration
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA . VARIABLE RPAREN str_declaration iffor_declaration
+
+    VARIABLE        shift and go to state 62
+
+
+state 60
+
+    (33) def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .
+
+    PUTS            reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    VARIABLE        reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    IF              reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    ELSE            reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    COMMENTS        reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    DEF             reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    END             reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+    $end            reduce using rule 33 (def_declaration -> VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN .)
+
+
+state 61
+
+    (28) iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .
+
+    PUTS            reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    VARIABLE        reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    IF              reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    ELSE            reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    COMMENTS        reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    DEF             reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    END             reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+    $end            reduce using rule 28 (iffor_declaration -> IF VARIABLE LESSEQUAL STRING var_declaration str_declaration .)
+
+
+state 62
+
+    (31) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE . RPAREN str_declaration
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE . RPAREN str_declaration iffor_declaration
+
+    RPAREN          shift and go to state 63
+
+
+state 63
+
+    (31) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN . str_declaration
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN . str_declaration iffor_declaration
+    (10) str_declaration -> . PUTS STRING
+    (11) str_declaration -> . PUTS VARIABLE
+    (12) str_declaration -> . PUTS VARIABLE PLUS VARIABLE
+
+    PUTS            shift and go to state 10
+
+    str_declaration                shift and go to state 64
+
+state 64
+
+    (31) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration . iffor_declaration
+    (23) iffor_declaration -> . IF VARIABLE ISEQUAL STRING str_declaration
+    (24) iffor_declaration -> . ELSE str_declaration
+    (25) iffor_declaration -> . ELSE
+    (26) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING str_declaration
+    (27) iffor_declaration -> . IF VARIABLE LESSEQUAL VARIABLE
+    (28) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING var_declaration str_declaration
+    (29) iffor_declaration -> . IF VARIABLE LESSEQUAL STRING empty
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for ELSE resolved as shift
+    PUTS            reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    VARIABLE        reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    COMMENTS        reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    DEF             reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    END             reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    $end            reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .)
+    IF              shift and go to state 12
+    ELSE            shift and go to state 13
+
+  ! IF              [ reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .) ]
+  ! ELSE            [ reduce using rule 31 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration .) ]
+
+    iffor_declaration              shift and go to state 65
+
+state 65
+
+    (32) def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .
+
+    PUTS            reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    VARIABLE        reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    IF              reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    ELSE            reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    COMMENTS        reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    DEF             reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    END             reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+    $end            reduce using rule 32 (def_declaration -> DEF VARIABLE LPAREN VARIABLE COMMA VARIABLE RPAREN str_declaration iffor_declaration .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PUTS in state 48 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE in state 48 resolved as shift
+WARNING: shift/reduce conflict for IF in state 64 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 64 resolved as shift
